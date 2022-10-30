@@ -195,6 +195,8 @@ describe Tmuxinator::Cli do
                     edit
                     open
                     start
+                    pause
+                    resume
                     stop
                     local
                     debug

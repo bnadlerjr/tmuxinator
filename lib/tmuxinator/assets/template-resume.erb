@@ -1,0 +1,6 @@
+#!<%= ENV["SHELL"] || "/bin/bash" %>
+
+<%- if tmux_has_session? name -%>
+  cd <%= root || "." %>
+  <%= hook_on_project_resume %>
+<%- end -%>

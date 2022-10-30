@@ -114,6 +114,10 @@ module Tmuxinator
         asset_path "template-pause.erb"
       end
 
+      def resume_template
+        asset_path "template-resume.erb"
+      end
+
       def stop_template
         asset_path "template-stop.erb"
       end

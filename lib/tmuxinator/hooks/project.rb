@@ -17,11 +17,18 @@ module Tmuxinator
         Tmuxinator::Hooks.commands_from self, "on_project_first_start"
       end
 
-      # Commands specified in this hook run when "tmuxinator pause project"
+      # Commands specified in this hook run when "tmuxinator pauses project"
       # command is issued and there is no tmux session available named "project"
       def hook_on_project_pause
         # this method can only be used from inside Tmuxinator::Project
         Tmuxinator::Hooks.commands_from self, "on_project_pause"
+      end
+
+      # Commands specified in this hook run when "tmuxinator resumes project"
+      # command is issued and there is no tmux session available named "project"
+      def hook_on_project_resume
+        # this method can only be used from inside Tmuxinator::Project
+        Tmuxinator::Hooks.commands_from self, "on_project_resume"
       end
 
       # Commands specified in this hook run when "tmuxinator start project"
