@@ -97,6 +97,10 @@ module Tmuxinator
       self.class.render_template(Tmuxinator::Config.template, binding)
     end
 
+    def pause
+      self.class.render_template(Tmuxinator::Config.pause_template, binding)
+    end
+
     def kill
       self.class.render_template(Tmuxinator::Config.stop_template, binding)
     end

@@ -301,6 +301,26 @@ describe Tmuxinator::Cli do
     include_examples :unsupported_version_message, :start, :foo
   end
 
+  describe "#pause" do
+    before do
+      ARGV.replace(["pause", "foo"])
+      allow(Tmuxinator::Config).to receive_messages(validate: project)
+      allow(Tmuxinator::Config).to receive_messages(version: 1.9)
+      allow(Kernel).to receive(:exec)
+    end
+
+    context "with project name" do
+      it "pause the project" do
+        expect(Kernel).to receive(:exec)
+        out, err = capture_io { cli.start }
+        expect(err).to eq ""
+        expect(out).to eq ""
+      end
+    end
+
+    include_examples :unsupported_version_message, :pause, :foo
+  end
+
   describe "#stop" do
     before do
       ARGV.replace(["stop", "foo"])
